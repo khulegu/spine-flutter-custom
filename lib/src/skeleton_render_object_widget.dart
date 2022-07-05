@@ -91,6 +91,8 @@ class SkeletonRenderObject extends RenderBox {
       return;
     }
 
+    if (layer == null) return;
+
     final double deltaTime = t - _lastFrameTime;
     _lastFrameTime = t;
 
@@ -112,9 +114,8 @@ class SkeletonRenderObject extends RenderBox {
       return;
     }
 
-    final ui.Canvas canvas = context.canvas
-      ..save()
-      ..clipRect(offset & size);
+    final ui.Canvas canvas = context.canvas..save();
+    // ..clipRect(offset & size);
 
     _resize(canvas, offset);
 
